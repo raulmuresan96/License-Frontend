@@ -1,0 +1,35 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Surname</th>
+    </thead>
+    <tbody>
+        <!-- [class.active]="checkIfHighLight(author)" checkIfHighLight() -->
+      <!-- <tr *ngFor="let author of authors" (click)="authorClick($event)"> -->
+      <tr *ngFor="let author of authors" (click)="authorClick(author)" [class.highlight]="author == lastSelectedAuthor">
+      <!-- <tr *ngFor="let author of authors" (click)="authorClick(author)" [ngClass]="{highlight: isActive(author)}"}> -->
+        <td>{{author.authorId}}</td>
+        <td>{{author.surname}}</td>
+        <td>{{author.firstname}}</td>
+      </tr>
+    </tbody>
+
+
+  </table>
+
+  <form>
+    <div class="form group">
+      <input type="text" name="searchString" class="form-control" (input)="onSearchChange($event.target.value)">
+
+    </div>
+    <!-- <input type="submit" value="search" class="btn btn-success" (click)="search()"> -->
+    
+    <input type="file" (change)="uploadPublicationCsv($event)">
+    <input type="file" (change)="uploadCitationCsv($event)">
+    <input type="submit" value="save" class="btn btn-success" (click)="method()">
+  </form>
+
+
+</div>
